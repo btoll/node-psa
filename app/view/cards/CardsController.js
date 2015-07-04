@@ -34,8 +34,11 @@ Ext.define('PSA.view.cards.CardsController', {
     },
     */
 
-    onItemClick: function () {
-        this.fireViewEvent('blech', {});
+    onItemDblClick: function (view, record, item, index) {
+        // Note that if the view isn't the first element passed in the args array that the framework
+        // will prepend it before passing it to its destination.
+        // So, to avoid confusion, let's just pass it explicitly here.
+        this.fireViewEvent('carddetail', record);
     },
 
     onSelect: function (combo, record) {

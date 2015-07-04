@@ -12,7 +12,7 @@ Ext.define('PSA.view.main.CardDetail', {
         xtype: 'tabpanel',
         items: [{
             title: 'Main',
-            xtype: 'app-detail-carddetail'
+            xtype: 'app-detail-form'
         }, {
             title: 'PSA',
             xtype: 'app-detail-psa'

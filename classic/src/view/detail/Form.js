@@ -1,7 +1,7 @@
-Ext.define('PSA.view.detail.CardDetail', {
+Ext.define('PSA.view.detail.Form', {
     extend: 'Ext.form.Panel',
 
-    xtype: 'app-detail-carddetail',
+    xtype: 'app-detail-form',
 
     url: '/cards',
 

@@ -69,7 +69,10 @@ Ext.define('PSA.view.main.Main', {
         iconCls: 'fa-soccer-ball-o',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'app-list'
+            xtype: 'app-list',
+            listeners: {
+                carddetail: 'onCardDetail'
+            }
         }]
     }, {
         title: 'Settings',

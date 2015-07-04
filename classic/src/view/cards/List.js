@@ -63,7 +63,7 @@ Ext.define('PSA.view.cards.List', {
     }],
 
     listeners: {
-        itemclick: 'onItemClick'
+        itemdblclick: 'onItemDblClick'
     }
 });
 

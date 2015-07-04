@@ -2,6 +2,8 @@ Ext.define('PSA.view.detail.PSA', {
     extend: 'Ext.grid.Panel',
     xtype: 'app-detail-psa',
 
+    bind: '{psa}',
+
     height: 400,
     width: 650,
 
