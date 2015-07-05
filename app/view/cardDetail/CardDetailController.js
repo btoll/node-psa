@@ -50,6 +50,7 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
         if (form.isDirty()) {
             if (!syncCheckbox.getValue()) {
                 button.up('carddetail-form').getForm().updateRecord();
+                me.fireViewEvent('update');
             } else {
                 // Sync immediately if the checkbox is checked.
                 me.showMsgBox();

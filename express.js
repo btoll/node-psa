@@ -7,6 +7,7 @@ var express = require('express'),
     // Formerly express#logger.
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
+    multer = require('multer'),
     methodOverride = require('method-override'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
@@ -36,6 +37,12 @@ app.set('httpsPort', process.env.PORT || 3001);
 //app.use(favicon());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(multer({
+    dest: './server/images/',
+    rename: function (fieldname, filename) {
+        return filename;
+    }
+}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 app.use(cookieParser());

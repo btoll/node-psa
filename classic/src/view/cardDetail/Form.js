@@ -45,8 +45,6 @@ Ext.define('PSA.view.cardDetail.Form', {
                 fieldLabel: 'Items',
                 name: 'items',
                 minValue: 0
-            /*
-            // Temporarily disable this so POSTs aren't multipart.
             }, {
                 xtype: 'fileuploadfield',
                 itemId: 'upload',
@@ -56,7 +54,6 @@ Ext.define('PSA.view.cardDetail.Form', {
                 listeners: {
                     change: 'onChange'
                 }
-            */
             }]
         }, {
             xtype: 'container',

@@ -87,7 +87,7 @@ Ext.define('PSA.view.cards.CardsController', {
 
     onSync: function (button) {
         var me = this,
-            store = button.up('grid').store,
+            store = me.getViewModel().data.cards,
             records = store.getModifiedRecords(),
             cardDetailView = this.cardDetailView,
             msg = false;
@@ -97,12 +97,12 @@ Ext.define('PSA.view.cards.CardsController', {
         } else if (!records.length) {
             msg = 'No records have been modified.';
         } else {
-            this.showMsgBox();
+            //this.showMsgBox();
             store.sync({
                 success: function (form, action) {
                     // Show the prompt a bit after the request has returned for a PRO effect. (\s)
                     Ext.defer(function () {
-                        me.msgBox.close();
+                        //me.msgBox.close();
                     }, 1500);
                 },
                 failure: function () {
@@ -114,6 +114,10 @@ Ext.define('PSA.view.cards.CardsController', {
         if (msg) {
             Ext.Msg.alert('Welcome to Toll Memorial!', msg);
         }
+    },
+
+    onUpdate: function () {
+        this.getView().down('button[text="Sync"]').enable();
     }
 });
 

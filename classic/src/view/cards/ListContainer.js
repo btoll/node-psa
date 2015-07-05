@@ -10,7 +10,10 @@ Ext.define('PSA.view.cards.ListContainer', {
     items: [{
         xtype: 'app-list'
     }, {
-        xtype: 'app-carddetail'
+        xtype: 'app-carddetail',
+        listeners: {
+            update: 'onUpdate'
+        }
     }]
 });
 

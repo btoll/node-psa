@@ -26,7 +26,11 @@ Ext.application({
         'PSA.view.cards.CardsModel',
         'PSA.view.cards.ListContainer',
         'PSA.view.cards.List',
-        'PSA.view.cards.CardDetail'
+        'PSA.view.cards.CardDetail'//,
+
+        // Overrides.
+        //'PSA.form.action.Submit'
+
     ],
 
     // The name of the initial view to create. With the classic toolkit this class
