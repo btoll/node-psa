@@ -2,12 +2,11 @@ Ext.define('PSA.view.cardDetail.Form', {
     extend: 'Ext.form.Panel',
     xtype: 'carddetail-form',
 
-    controller: 'carddetail',
-
     url: '/cards',
 
     bodyPadding: 10,
     bodyCls: 'form-main',
+    jsonSubmit: true,
     width: 670,
 
     items: [{
@@ -46,6 +45,8 @@ Ext.define('PSA.view.cardDetail.Form', {
                 fieldLabel: 'Items',
                 name: 'items',
                 minValue: 0
+            /*
+            // Temporarily disable this so POSTs aren't multipart.
             }, {
                 xtype: 'fileuploadfield',
                 itemId: 'upload',
@@ -55,6 +56,7 @@ Ext.define('PSA.view.cardDetail.Form', {
                 listeners: {
                     change: 'onChange'
                 }
+            */
             }]
         }, {
             xtype: 'container',

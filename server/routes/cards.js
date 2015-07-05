@@ -8,7 +8,6 @@ module.exports = function (app) {
         .get(function (req, res) {
             var set = req.query.set;
 
-            // TODO: is this whole branch necessary?
             if (set !== undefined) {
                 db.query('/cards/:set', req, res);
             } else {

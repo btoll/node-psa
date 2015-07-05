@@ -56,12 +56,6 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
 
                 form.submit({
                     success: function (form, action) {
-                        /*
-                        // Here we are mixing our new data into the old record's data object and only refreshing
-                        // the view node that we're targeting.
-                        Ext.apply(oldRecord.data, action.result.record);
-                        grid.view.refreshNode(oldRecord.index);
-                        */
                         me.getViewModel().data.cards.reload();
 
                         // Show the prompt a bit after the request has returned for a PRO effect.
