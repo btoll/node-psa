@@ -20,7 +20,9 @@ Ext.application({
         'PSA.view.cardDetail.CardDetailController',
         'PSA.view.cardDetail.Form',
         'PSA.view.cardDetail.PSA',
+        'PSA.view.cardDetail.PSADetail',
         'PSA.view.cardDetail.Condition',
+        'PSA.view.cardDetail.ConditionDetail',
 
         'PSA.view.cards.CardsController',
         'PSA.view.cards.CardsModel',

@@ -25,6 +25,7 @@ Ext.define('PSA.view.cardDetail.PSADetail', {
     extend: 'Ext.window.Window',
 
     xtype: 'carddetail-psadetail',
+    closeAction: 'hide',
     title: 'Add PSA Rating',
     defaultFocus: 'psa_rating',
     modal: true,

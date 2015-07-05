@@ -18,7 +18,8 @@ Ext.define('PSA.view.cardDetail.Condition', {
         xtype: 'toolbar',
         items: [{
             itemId: 'add',
-            text: 'Add Condition'
+            text: 'Add Condition',
+            handler: 'onAdd'
         }]
     }]
 });

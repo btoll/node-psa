@@ -58,12 +58,14 @@ Ext.define('PSA.view.cards.List', {
         }, {
             itemId: 'sync',
             text: 'Sync',
-            disabled: true
+            disabled: true,
+            handler: 'onSync'
         }]
     }],
 
     listeners: {
-        itemdblclick: 'onItemDblClick'
+        itemdblclick: 'onItemDblClick',
+        refresh: 'onRefresh'
     }
 });
 

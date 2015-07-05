@@ -51,7 +51,10 @@ Ext.define('PSA.view.cardDetail.Form', {
                 itemId: 'upload',
                 fieldLabel: '&nbsp;',
                 buttonText: 'Upload',
-                name: 'upload'
+                name: 'upload',
+                listeners: {
+                    change: 'onChange'
+                }
             }]
         }, {
             xtype: 'container',

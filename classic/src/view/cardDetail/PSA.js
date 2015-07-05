@@ -21,7 +21,8 @@ Ext.define('PSA.view.cardDetail.PSA', {
         xtype: 'toolbar',
         items: [{
             itemId: 'add',
-            text: 'Add PSA Rating'
+            text: 'Add PSA Rating',
+            handler: 'onAdd'
         }]
     }]
 });

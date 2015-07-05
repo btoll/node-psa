@@ -15,6 +15,7 @@ Ext.define('PSA.view.cardDetail.ConditionDetail', {
     extend: 'Ext.window.Window',
 
     xtype: 'carddetail-conditiondetail',
+    closeAction: 'hide',
     title: 'Add Condition',
     defaultFocus: 'condition',
     modal: true,
