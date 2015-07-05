@@ -2,9 +2,6 @@ Ext.define('PSA.view.cards.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'app-list',
 
-    controller: 'cards',
-    viewModel: 'cards',
-
     bind: '{cards}',
 
     title: 'Cards',
@@ -64,7 +61,7 @@ Ext.define('PSA.view.cards.List', {
     }],
 
     listeners: {
-        itemdblclick: 'onItemDblClick',
+        itemdblclick: 'onShowCardDetail',
         refresh: 'onRefresh'
     }
 });

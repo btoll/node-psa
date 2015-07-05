@@ -7,7 +7,6 @@ Ext.define('PSA.view.main.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'app-main',
 
-    controller: 'main',
     viewModel: 'main',
 
     ui: 'navigation',
@@ -69,10 +68,7 @@ Ext.define('PSA.view.main.Main', {
         iconCls: 'fa-soccer-ball-o',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'app-list',
-            listeners: {
-                showcarddetail: 'onShowCardDetail'
-            }
+            xtype: 'app-listcontainer'
         }]
     }, {
         title: 'Settings',
@@ -80,8 +76,6 @@ Ext.define('PSA.view.main.Main', {
         bind: {
             html: '{loremIpsum}'
         }
-    }, {
-        xtype: 'app-carddetail'
     }]
 });
 

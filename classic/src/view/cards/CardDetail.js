@@ -1,4 +1,4 @@
-Ext.define('PSA.view.main.CardDetail', {
+Ext.define('PSA.view.cards.CardDetail', {
     extend: 'Ext.window.Window',
     xtype: 'app-carddetail',
 

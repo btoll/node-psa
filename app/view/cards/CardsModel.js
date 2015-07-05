@@ -4,6 +4,8 @@ Ext.define('PSA.view.cards.CardsModel', {
 
     requires: [
         'PSA.model.Card',
+        'PSA.model.Condition',
+        'PSA.model.PSA',
         'PSA.model.Set'
     ],
 
@@ -12,6 +14,20 @@ Ext.define('PSA.view.cards.CardsModel', {
             model: 'PSA.model.Card',
             sorters: [{
                 property: 'number'
+            }]
+        },
+
+        conditions: {
+            model: 'PSA.model.Condition',
+            sorters: [{
+                property: 'condition'
+            }]
+        },
+
+        psa: {
+            model: 'PSA.model.PSA',
+            sorters: [{
+                property: 'psa_rating'
             }]
         },
 

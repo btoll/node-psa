@@ -2,11 +2,12 @@ Ext.define('PSA.view.cards.CardsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.cards',
 
-    onItemDblClick: function (view, record, item, index) {
-        // Note that if the view isn't the first element passed in the args array that the framework
-        // will prepend it before passing it to its destination.
-        // So, to avoid confusion, let's just pass it explicitly here.
-        this.fireViewEvent('showcarddetail', record);
+    onRefresh: function (view) {
+        if (view.store.getCount()) {
+            view.ownerCt.down('button[text="Sync"]').enable();
+        } else {
+            view.ownerCt.down('button[text="Sync"]').disable();
+        }
     },
 
     onSelect: function (combo, record) {
@@ -29,12 +30,59 @@ Ext.define('PSA.view.cards.CardsController', {
         });
     },
 
-    onRefresh: function (view) {
-        if (view.store.getCount()) {
-            view.ownerCt.down('button[text="Sync"]').enable();
-        } else {
-            view.ownerCt.down('button[text="Sync"]').disable();
+    onShowCardDetail: function (view, record) {
+        // Note that the event is fired from the List view but the window is owned by the Main view.
+        var me = this,
+            mainViewModel = me.getViewModel(),
+            cardDetailView = me.getView().down('app-carddetail'),
+            data = record.data,
+            src = record.get('image') || 'default.jpg',
+            //formPanel = cardDetailView.down('carddetail-form'),
+            formPanel,
+            formView;
+
+        formPanel = cardDetailView.down('carddetail-form');
+        formPanel.getForm().loadRecord(record);
+
+        // Set the card_id so it can be retrieved when Conditions are created.
+        me.activeRecordId = data.id;
+
+        // Set the card name as the window's title.
+        cardDetailView.setTitle(data.name);
+
+        // Load the conditions store.
+        mainViewModel.data.conditions.load({
+            records: [record],
+            callback: function (records, operation, success) {
+                var resultSet = operation.getResultSet();
+
+                if (resultSet.count) {
+                    // `this`, not `me`!
+                    this.loadRecords(resultSet.records);
+                }
+            }
+        });
+
+        // Load the psa store.
+        mainViewModel.data.psa.load({
+            records: [record],
+            callback: function (records, operation, success) {
+                var resultSet = operation.getResultSet();
+
+                if (resultSet.count) {
+                    // `this`, not `me`!
+                    this.loadRecords(resultSet.records);
+                }
+            }
+        });
+
+        // Set the image src. Note this must happen after the call to show in case the image cmp
+        // hasn't been lazy-loaded yet!
+        if (src) {
+            formPanel.down('#ballplayer').setSrc('/upload/' + src);
         }
+
+        cardDetailView.show();
     },
 
     onSync: function (button) {

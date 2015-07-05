@@ -49,7 +49,7 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
         // TODO: isDirty() returns `true` even when nothing has been changed!
         if (form.isDirty()) {
             if (!syncCheckbox.getValue()) {
-                button.up('form-main').getForm().updateRecord();
+                button.up('carddetail-form').getForm().updateRecord();
             } else {
                 // Sync immediately if the checkbox is checked.
                 me.showMsgBox();
@@ -57,15 +57,12 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
                 form.submit({
                     success: function (form, action) {
                         /*
-                        var grid = me.getCards(),
-                            oldRecord = form.getRecord();
-
                         // Here we are mixing our new data into the old record's data object and only refreshing
                         // the view node that we're targeting.
                         Ext.apply(oldRecord.data, action.result.record);
                         grid.view.refreshNode(oldRecord.index);
                         */
-                        me.getCards().store.reload();
+                        me.getViewModel().data.cards.reload();
 
                         // Show the prompt a bit after the request has returned for a PRO effect.
                         Ext.defer(function () {
@@ -74,6 +71,7 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
                     },
                     failure: function () {
                         me.msgBox.alert('Toll Memorial PSA app', 'There was a problem, your data could not be saved!');
+                        me.msgBox.close();
                     }
                 });
             }
@@ -81,7 +79,7 @@ Ext.define('PSA.view.cardDetail.CardDetailController', {
 
         // Reset the Sync on Update checkbox.
         syncCheckbox.setValue(false);
-        button.up('window-carddetail').close();
+        button.up('app-carddetail').close();
     },
 
     showMsgBox: function () {
