@@ -2,14 +2,14 @@ Ext.define('PSA.view.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    onCardDetail: function (view, record) {
+    onShowCardDetail: function (view, record) {
         // Note that the event is fired from the List view but the window is owned by the Main view.
         var me = this,
             mainViewModel = me.getViewModel(),
             cardDetailView = me.getView().down('app-carddetail'),
             data = record.data,
             src = record.get('image') || 'default.jpg',
-            formPanel = cardDetailView.down('app-detail-form'),
+            formPanel = cardDetailView.down('carddetail-form'),
             formView;
 
         formPanel.getForm().loadRecord(record);

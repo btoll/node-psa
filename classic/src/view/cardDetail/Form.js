@@ -1,7 +1,8 @@
-Ext.define('PSA.view.detail.Form', {
+Ext.define('PSA.view.cardDetail.Form', {
     extend: 'Ext.form.Panel',
+    xtype: 'carddetail-form',
 
-    xtype: 'app-detail-form',
+    controller: 'carddetail',
 
     url: '/cards',
 
@@ -86,11 +87,13 @@ Ext.define('PSA.view.detail.Form', {
         }, {
             itemId: 'cancel',
             text: 'Cancel',
-            scale: 'medium'
+            scale: 'medium',
+            handler: 'onCancel'
         }, {
             itemId: 'update',
             text: '<b>Update</b>',
-            scale: 'medium'
+            scale: 'medium',
+            handler: 'onUpdate'
         }]
     }]
 });

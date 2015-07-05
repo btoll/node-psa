@@ -1,6 +1,6 @@
-Ext.define('PSA.view.detail.PSA', {
+Ext.define('PSA.view.cardDetail.PSA', {
     extend: 'Ext.grid.Panel',
-    xtype: 'app-detail-psa',
+    xtype: 'carddetail-psa',
 
     bind: '{psa}',
 

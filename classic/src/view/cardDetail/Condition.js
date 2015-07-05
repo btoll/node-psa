@@ -1,6 +1,6 @@
-Ext.define('PSA.view.detail.Condition', {
+Ext.define('PSA.view.cardDetail.Condition', {
     extend: 'Ext.grid.Panel',
-    xtype: 'app-detail-condition',
+    xtype: 'carddetail-condition',
 
     bind: '{condition}',
 

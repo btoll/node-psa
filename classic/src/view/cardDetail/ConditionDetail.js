@@ -1,66 +1,57 @@
-var defaults = {
-        labelSeparator: '',
-        labelAlign: 'right',
-        labelWidth: 75
-    },
-    psaItems = [Ext.apply({
-        xtype: 'numberfield',
-        itemId: 'psa_rating',
-        fieldLabel: 'PSA Rating',
-        name: 'psa_rating',
-        minValue: 0,
-        maxValue: 10,
-        step: 0.5,
-        width: 200,
-        allowBlank: false
-    }, defaults), Ext.apply({
-        xtype: 'textfield',
-        fieldLabel: 'PSA Cert',
-        name: 'psa_cert',
-        margin: '0 10 0 0',
-        allowBlank: false
-    }, defaults)];
+var conditionItem = {
+    xtype: 'textfield',
+    itemId: 'condition',
+    fieldLabel: 'Condition',
+    labelSeparator: '',
+    labelAlign: 'right',
+    labelWidth: 75,
+    name: 'condition',
+    width: 200,
+    margin: '0 10 0 0',
+    allowBlank: false
+};
 
-Ext.define('PSA.view.detail.PSADetail', {
+Ext.define('PSA.view.cardDetail.ConditionDetail', {
     extend: 'Ext.window.Window',
 
-    xtype: 'window-psa',
-    title: 'Add PSA Rating',
-    defaultFocus: 'psa_rating',
+    xtype: 'carddetail-conditiondetail',
+    title: 'Add Condition',
+    defaultFocus: 'condition',
     modal: true,
 
     items: [{
         xtype: 'form',
         autoScroll: true,
-        url: '/psa',
+        url: '/conditions',
         height: 300,
-        width: 550,
+        width: 330,
         bodyPadding: 20,
+        defaults: {
+        },
         items: [{
             xtype: 'container',
-            layout: 'hbox',
             // Note don't add the hidden `id` field here because not all cards have conditions. Because of this,
             // we cannot get the card id from the condition model and so we must poke it onto the controller obj
             // when the cards model is retrieved.
             //
             // Note that setting a hidden field means that we can't call load with id in the params because it
             // will get overwritten by the empty id in the condition model!
-            items: psaItems
+            items: conditionItem
         }],
         bbar: [{
-            text: 'New PSA Rating',
+            text: 'New Condition',
             handler: function () {
                 this.up('form').add({
                     xtype: 'container',
                     layout: 'hbox',
                     padding: '5 5 5 0',
-                    items: psaItems.concat({
+                    items: [conditionItem, {
                         xtype: 'button',
                         text: 'Remove',
                         handler: function () {
                             this.up('container').destroy();
                         }
-                    })
+                    }]
                 });
             }
         }, {
@@ -100,7 +91,7 @@ Ext.define('PSA.view.detail.PSADetail', {
                         success: function () {
                             win.close();
                             Ext.defer(function () {
-                                Ext.StoreManager.get('PSA').reload();
+                                Ext.StoreManager.get('Conditions').reload();
                                 msgBox.close();
                             }, 1500);
                         },

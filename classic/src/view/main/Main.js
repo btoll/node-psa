@@ -71,7 +71,7 @@ Ext.define('PSA.view.main.Main', {
         items: [{
             xtype: 'app-list',
             listeners: {
-                carddetail: 'onCardDetail'
+                showcarddetail: 'onShowCardDetail'
             }
         }]
     }, {

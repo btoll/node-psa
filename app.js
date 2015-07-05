@@ -10,17 +10,21 @@ Ext.application({
 
     // TODO: Sort out these requires.
     requires: [
-        'PSA.view.main.Main',
         'PSA.view.main.MainController',
-        'PSA.view.cards.List',
-        'PSA.view.cards.CardsController',
-        'PSA.view.Sets',
-        'PSA.view.main.CardDetail',
-        'PSA.view.detail.Form',
-        'PSA.view.detail.PSA',
-        'PSA.view.detail.Condition',
         'PSA.view.main.MainModel',
-        'PSA.view.cards.CardsModel'
+        'PSA.view.main.Main',
+        'PSA.view.main.CardDetail',
+
+        'PSA.view.Sets',
+
+        'PSA.view.cardDetail.CardDetailController',
+        'PSA.view.cardDetail.Form',
+        'PSA.view.cardDetail.PSA',
+        'PSA.view.cardDetail.Condition',
+
+        'PSA.view.cards.CardsController',
+        'PSA.view.cards.CardsModel',
+        'PSA.view.cards.List'
     ],
 
     // The name of the initial view to create. With the classic toolkit this class
