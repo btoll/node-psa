@@ -12,11 +12,9 @@ Ext.define('PSA.view.cards.CardsController', {
 
     onSelect: function (combo, record) {
         var me = this,
-            cardDetailView = this.cardDetailView;
+            cardDetailView = me.getView().down('app-carddetail');
 
-        // TODO
-        // Close the form when selecting another set.
-        if (cardDetailView && !cardDetailView.hidden) {
+        if (cardDetailView && cardDetailView.isVisible()) {
             cardDetailView.close();
         }
 
