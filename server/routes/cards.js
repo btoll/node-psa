@@ -14,13 +14,12 @@ module.exports = function (app) {
                 // TODO: throw here.
             }
         })
-
         .post(function (req, res) {
             db.query('/cards', req, res);
-        })
-
-        .put(function (req, res) {
-            db.query('/cards', req, res);
         });
+
+    app.put('/cards/:card', function (req, res) {
+        db.query('/cards', req, res);
+    });
 };
 

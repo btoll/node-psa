@@ -103,10 +103,21 @@ Ext.define('PSA.view.cards.CardsController', {
                     // Show the prompt a bit after the request has returned for a PRO effect. (\s)
                     Ext.defer(function () {
                         //me.msgBox.close();
+                        /*
+                        Ext.Msg.show({
+                            title: 'Toll Memorial PSA app',
+                            msg: 'There was a problem, your data could not be saved!',
+                            width: 350
+                        });
+                        */
                     }, 1500);
                 },
                 failure: function () {
-                    me.msgBox.alert('Toll Memorial PSA app', 'There was a problem, your data could not be saved!');
+                    Ext.Msg.show({
+                        title: 'Toll Memorial PSA app',
+                        msg: 'There was a problem, your data could not be saved!',
+                        width: 350
+                    });
                 }
             });
         }
