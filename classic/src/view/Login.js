@@ -12,6 +12,7 @@ Ext.define('PSA.view.Login', {
     items: [{
         xtype: 'form',
         url: './login',
+        standardSubmit: true,
         bodyPadding: 10,
 
         defaults: {
@@ -45,7 +46,6 @@ Ext.define('PSA.view.Login', {
                 var form = this.up('form').getForm();
 
                 if (form.isValid()) {
-                    form.standardSubmit = true;
                     form.submit();
                 }
             }

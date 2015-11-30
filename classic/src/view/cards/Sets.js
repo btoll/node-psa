@@ -1,4 +1,4 @@
-Ext.define('PSA.view.Sets', {
+Ext.define('PSA.view.cards.Sets', {
     extend: 'Ext.form.field.ComboBox',
     xtype: 'app-sets',
 
